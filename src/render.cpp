@@ -5,7 +5,7 @@ int main(void)
     while (!glfwWindowShouldClose(render_.window->mainWindow))
     {
 
-        render_.update();
+       // render_.update();
 
     }
 }
