@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="resources">
+      <UniqueIdentifier>{214541c2-2a94-4d4d-81b4-d771ff0e0eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\shaders">
+      <UniqueIdentifier>{c741681c-2a56-4e9b-92b1-0b66ab568728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\objects">
+      <UniqueIdentifier>{dc605e93-d7ee-400a-b513-0e015d95d132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{8f554ffb-62a1-4e97-acb2-609622caf1cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\Basic.shader">
+      <Filter>resources\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\objects\rock.mtl">
+      <Filter>resources\objects</Filter>
+    </Text>
+    <Text Include="resources\objects\rock.obj">
+      <Filter>resources\objects</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\objects\rock.png">
+      <Filter>resources\objects</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\mainfile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\camera.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\defines.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\errorCheck.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mainfile.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\meshes.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\model.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\window.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
