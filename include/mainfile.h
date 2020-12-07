@@ -4,6 +4,9 @@
 #include"window.h"
 #include"camera.h"
 #include"model.h"
+#include"Light.h"
+#include"shader.h"
+#include"vector"
 class render {
 	shader* shader_;
 	Model* ourModel;
@@ -11,10 +14,12 @@ class render {
 	glm::mat4 ModelMatrix;
 	glm:: mat4 ViewMatrix;
 	glm::mat4 ProjectionMatrix;
+	
+	
 
 	 
 	//Mouse Input
-	 double lastMouseX;
+	double lastMouseX;
 	double lastMouseY;
 	double mouseX;
 	double mouseY;
@@ -23,6 +28,9 @@ class render {
 	bool firstMouse; 
 
 	Camera *camera;
+
+	Light mainLight;//light input
+
 
 	//Delta time
 	float dt;
