@@ -26,7 +26,16 @@ in vec3 vs_colour;
 in vec2 vs_textureCoord;
 out vec4 colour;
 uniform sampler2D texture_diffuse;
+uniform DirectionalLight directionalLight;
+struct DirectionalLight
+{
+    vec3 colour;
+    float ambientIntensity;
+    
+};
+
 void main()
 {
-    colour = texture(texture_diffuse, vs_textureCoord); 
+    vec4 ambientColour = vec4(directionalLight.colour, 1.0f) * directionalLight.ambientIntensity;
+    colour = texture(texture_diffuse, vs_textureCoord) * ambientColour;
 };
