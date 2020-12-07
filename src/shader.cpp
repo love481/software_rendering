@@ -40,6 +40,7 @@ void shader:: addShader(const char* shaderCode, GLenum shaderType)
         return;
     }
     glAttachShader(shaderId, theShader);
+  
 }
 
 void shader:: compileShader(const string& filePath)
@@ -70,6 +71,8 @@ void shader:: compileShader(const string& filePath)
         cout << "Error validate Program:" << eLog << endl;
         return;
     }
+    uniformAmbientColour = glGetUniformLocation(shaderId, "directionalLight.colour");
+    uniformAmbientIntensity = glGetUniformLocation(shaderId, "directionalLight.ambientIntensity");
 }
 void shader::setBool(const string& name, bool value) const
 {
@@ -118,4 +121,14 @@ void shader::setMat3(const string& name, const glm::mat3& mat) const
 void shader::setMat4(const string& name, const glm::mat4& mat) const
 {
     glUniformMatrix4fv(glGetUniformLocation(shaderId, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+
+unsigned int shader::GetAmbientIntensityLocation()
+{
+    return uniformAmbientIntensity;
+}
+
+unsigned int shader::GetAmbientColourLocation()
+{
+    return uniformAmbientColour;
 }
