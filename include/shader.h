@@ -8,7 +8,9 @@ struct shaderSources {
     string fShader;
 };
 class shader {
-    unsigned int shaderId, uniformAmbientIntensity, uniformAmbientColour;
+    unsigned int shaderId;
+
+    unsigned int uniformAmbientintensity, uniformAmbientColour, uniformDiffuseIntensity, uniformDirection;
     shaderSources ParseShader(const string&);
     void addShader( const char*, GLenum);
     void compileShader(const string&);
@@ -29,7 +31,11 @@ public:
     void setMat2(const string&, const glm::mat2& mat) const;
     void setMat3(const string&, const glm::mat3& mat) const;
     void setMat4(const string&, const glm::mat4& mat) const;
+
     unsigned int GetAmbientIntensityLocation();
     unsigned int GetAmbientColourLocation();
+    unsigned int GetDirectionLocation();
+    unsigned int GetDiffuseIntensityLocation();
+
 };
 #endif
