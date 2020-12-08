@@ -4,29 +4,31 @@
 #include"window.h"
 #include"camera.h"
 #include"model.h"
-#include"Light.h"
+#include"DirectionalLight.h"
+
 class render {
 	shader* shader_;
 	Model* ourModel;
 
 	glm::mat4 ModelMatrix;
-	glm:: mat4 ViewMatrix;
+	glm::mat4 ViewMatrix;
 	glm::mat4 ProjectionMatrix;
 
-	 
+
 	//Mouse Input
-	 double lastMouseX;
+	double lastMouseX;
 	double lastMouseY;
 	double mouseX;
 	double mouseY;
 	double mouseOffsetX;
 	double mouseOffsetY;
-	bool firstMouse; 
+	bool firstMouse;
 
-	Camera *camera;
-	
-	
-	Light mainLight;
+	Camera* camera;
+
+
+	DirectionalLight mainLight;
+
 
 	//Delta time
 	float dt;
@@ -41,7 +43,7 @@ class render {
 public:
 	Window* window;
 	render();
-	~render(){}
+	~render() {}
 	void updateInput(void);
 	void update(void);
 	void update_transformation(void);
