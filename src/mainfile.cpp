@@ -1,5 +1,4 @@
 #include"mainfile.h"
-
 void render::init_input()
 {
     dt = 0.f;
@@ -21,8 +20,6 @@ void render::init_transformation()
     ViewMatrix = glm::mat4(1.0f);
     ProjectionMatrix = glm::mat4(1.0f);
     ProjectionMatrix = glm::perspective(glm::radians(45.f), (GLfloat)window->bufferWidth / (GLfloat)window->bufferHeight, 0.1f, 100.0f);
-   
-    
 }
  void  render::processMouseInput()
 
@@ -70,10 +67,7 @@ void render::processKeyboardInput()
     {
         camera->ProcessKeyboard(dt, RIGHT);
     }
-    
 }
-
-
 
 void render::updateInput()
 {
@@ -92,11 +86,16 @@ void render::update_transformation()
     ViewMatrix = camera->getViewMatrix();
     shader_->setMat4("viewMatrix", ViewMatrix);
     shader_->setMat4("projectionMatrix", ProjectionMatrix);
-   
-    GLuint uniformAmbientIntensity = 0, uniformAmbientColour = 0;
-    uniformAmbientIntensity = shader_->GetAmbientIntensityLocation();
+
+    GLuint uniformAmbientIntensity = 0, uniformAmbientColour = 0,
+        uniformDirection = 0, uniformDiffuseIntensity =0;
+
     uniformAmbientColour = shader_->GetAmbientColourLocation();
-    mainLight.UseLight(uniformAmbientIntensity, uniformAmbientColour);
+    uniformAmbientIntensity = shader_->GetAmbientIntensityLocation();
+    uniformDirection = shader_->GetDirectionLocation();
+    uniformDiffuseIntensity = shader_->GetDiffuseIntensityLocation();
+    mainLight.UseLight(uniformAmbientIntensity, uniformAmbientColour, uniformDiffuseIntensity, uniformDirection);
+
 }
 render::render()
 {  
@@ -104,10 +103,9 @@ render::render()
     ourModel = new Model("resources/objects/rock.obj");
     shader_ = new shader("resources / shaders / Basic.shader");
     camera = new Camera(glm::vec3(0.f, 0.f, 3.f), glm::vec3(0.f, 1.f, 0.f));
-    mainLight = Light(1.0f, 1.5f, 1.0f, 0.5f);
 
-    
-
+    mainLight = Light(1.0f, 0.5f, 0.0f, 0.5f,
+                        2.0f,-1.0f, 2.0f, 1.0f);
     init_input();
     init_transformation();
 
